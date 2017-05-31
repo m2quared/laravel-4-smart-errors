@@ -71,7 +71,7 @@ class ErrorHandler
 	 *
 	 * @return \Illuminate\Http\Response|null
 	 */
-	public function handleException(Exception $exception, $code = null)
+	public function handleException($exception, $code = null)
 	{
 		try {
 			if ($this->exceptionHasBeenHandled($exception)) {
@@ -200,7 +200,7 @@ class ErrorHandler
 	 *
 	 * @return boolean
 	 */
-	protected function exceptionHasBeenHandled(Exception $exception)
+	protected function exceptionHasBeenHandled($exception)
 	{
 		if ($this->handledExceptions->contains($exception)) {
 			return true;
@@ -218,7 +218,7 @@ class ErrorHandler
 	 *
 	 * @return string
 	 */
-	protected function handleHandlerException(Exception $exception)
+	protected function handleHandlerException($exception)
 	{
 		error_log('Error in exception handler - https://github.com/anlutro/laravel-4-smart-errors/issues');
 
@@ -237,7 +237,7 @@ class ErrorHandler
 	 *
 	 * @return boolean
 	 */
-	protected function shouldSendEmail(Exception $exception)
+	protected function shouldSendEmail($exception)
 	{
 		// if the mailer is not bound to the IoC container...
 		if (!$this->app->bound('mailer') && !$this->app->isDeferredService('mailer')) {
@@ -257,7 +257,7 @@ class ErrorHandler
 	 *
 	 * @return \anlutro\L4SmartErrors\Presenters\ExceptionPresenter
 	 */
-	protected function makeExceptionPresenter(Exception $exception)
+	protected function makeExceptionPresenter($exception)
 	{
 		return $this->app->make('anlutro\L4SmartErrors\Presenters\ExceptionPresenter',
 			[$exception]);
