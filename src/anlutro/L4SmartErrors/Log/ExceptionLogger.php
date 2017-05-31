@@ -25,7 +25,7 @@ class ExceptionLogger
 		$this->contextCollector = $contextCollector;
 	}
 
-	public function log(Exception $exception)
+	public function log($exception)
 	{
 		$logstr = "Uncaught $exception";
 
