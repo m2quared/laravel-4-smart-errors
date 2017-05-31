@@ -9,7 +9,6 @@
 
 namespace anlutro\L4SmartErrors\Log;
 
-use Exception;
 use Psr\Log\LoggerInterface;
 
 class ExceptionLogger
